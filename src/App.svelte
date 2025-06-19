@@ -178,6 +178,10 @@
             data={chartData}
             label={chartLabel}
             borderColor={chartColor} />
+          <div class="absolute bottom-1 left-8 text-xs text-white">
+            Note: selecting 180m will show timestamps past 7 days, but the line stops at 7 days due
+            to API limits.
+          </div>
         </div>
       </div>
     {/if}
