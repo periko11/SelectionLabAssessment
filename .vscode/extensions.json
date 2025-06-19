@@ -1,3 +1,8 @@
 {
-  "recommendations": ["svelte.svelte-vscode"]
+  "recommendations": [
+    "1YiB.svelte-bundle",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "PKief.material-icon-theme"
+  ]
 }
