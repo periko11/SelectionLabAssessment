@@ -1,3 +1,4 @@
+// windspeed.ts
 export interface WindSpeedResponse {
   latitude: number;
   longitude: number;
@@ -10,12 +11,10 @@ export interface WindSpeedResponse {
   hourly: WindSpeedHourlyData;
 }
 
-interface WindSpeedHourlyUnits {
+export type WindSpeedHourlyUnits = {
   time: string; // iso8601
-  wind_speed_10m: string; // km/h
-}
+} & Record<string, string>;
 
-interface WindSpeedHourlyData {
+export type WindSpeedHourlyData = {
   time: string[]; // 2025-month-dayT00:00
-  wind_speed_10m: number[];
-}
+} & Record<string, number[]>;

@@ -57,20 +57,23 @@
       const res = await loadData(() => fetchTemperature(day, height as temperatureHeights));
       chartLabel = `Temp (${height}m °C)`;
       chartColor = "rgba(255,99,132,1)";
+      const key = `temperature_${height}m`;
       chartLabels = res.hourly.time;
-      chartData = res.hourly.temperature_2m;
+      chartData = (res.hourly as any)[key] as number[];
     } else if (category === "Wind Speed") {
       const res = await loadData(() => fetchWindspeed(day, height as otherHeights));
       chartLabel = `Wind Speed (${height}m km/h)`;
       chartColor = "rgba(75,192,192,1)";
+      const key = `wind_speed_${height}m`;
       chartLabels = res.hourly.time;
-      chartData = res.hourly.wind_speed_10m;
+      chartData = (res.hourly as any)[key] as number[];
     } else {
       const res = await loadData(() => fetchWindDirection(day, height as otherHeights));
       chartLabel = `Wind Dir (${height}m °)`;
       chartColor = "rgba(153,102,255,1)";
+      const key = `wind_direction_${height}m`;
       chartLabels = res.hourly.time;
-      chartData = res.hourly.wind_direction_10m;
+      chartData = (res.hourly as any)[key] as number[];
     }
   }
 
@@ -84,7 +87,6 @@
 </script>
 
 <main class="min-h-screen w-full overflow-y-auto bg-cyan-300">
-  <!-- Background Frame -->
   <div class="min-h-screen w-full bg-[url(./assets/DenHaag.png)] bg-cover bg-fixed bg-center">
     <!-- Header -->
     <div class="flex justify-center py-12">

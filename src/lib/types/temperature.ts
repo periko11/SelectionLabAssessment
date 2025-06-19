@@ -10,12 +10,10 @@ export interface TemperatureResponse {
   hourly: HourlyData;
 }
 
-export interface HourlyUnits {
+export type HourlyUnits = {
   time: string; // iso8601
-  temperature_2m: string; // °C
-}
+} & Record<string, string>;
 
-export interface HourlyData {
+export type HourlyData = {
   time: string[]; // 2025-month-dayT00:00
-  temperature_2m: number[];
-}
+} & Record<string, number[]>;
