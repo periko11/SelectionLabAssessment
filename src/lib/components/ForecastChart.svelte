@@ -40,7 +40,7 @@
     return () => chart.destroy();
   });
 
-  // —— React to prop changes ——
+  // Reacts to prop changes
   $: if (chart) {
     chart.data.labels = labels;
     chart.data.datasets[0].data = data;
