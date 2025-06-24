@@ -40,7 +40,7 @@
     return () => chart.destroy();
   });
 
-  // Reacts to prop changes
+  // Reacts to prop changes (svelte v4)
   $: if (chart) {
     chart.data.labels = labels;
     chart.data.datasets[0].data = data;

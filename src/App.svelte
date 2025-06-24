@@ -11,7 +11,7 @@
   import { validDays, validTemperatureHeights, validOtherHeights } from "./lib/types";
   import ForecastChart from "./lib/components/ForecastChart.svelte";
 
-  // — State & Config —
+  // pre chart props
   const categories = ["Temperature", "Rain", "Wind Speed", "Wind Direction"].sort((a, b) =>
     a.localeCompare(b)
   );
@@ -21,13 +21,14 @@
   let categoryForDays: string | null = null;
   let selectedHeight!: temperatureHeights | otherHeights;
 
+  // chart props
   let showChartcard = false;
   let chartLabels: string[] = [];
   let chartData: number[] = [];
   let chartLabel = "";
   let chartColor = "";
 
-  // — Helpers —
+  // helper functions
   async function loadData(fetchFn: () => Promise<any>) {
     return loader(fetchFn);
   }
