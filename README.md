@@ -1,47 +1,112 @@
-# Svelte + TS + Vite
+# Weather Visualization Dashboard
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+A responsive frontend application built with **Svelte**, **TypeScript**, **Vite**, **Tailwind CSS**, and **Chart.js**. This dashboard fetches and visualizes real-time weather data using the [Open-Meteo public API](https://open-meteo.com/en/docs).
 
-## Recommended IDE Setup
+## Live Demo
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+Check out the live demo here: [GitHub Repository](https://github.com/periko11/SelectionLabAssessment)
 
-## Need an official Svelte framework?
+## Purpose
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+This project was built as part of a frontend assessment to demonstrate skills in modern frontend development, data visualization, and API integration.
 
-## Technical considerations
+## Features
 
-**Why use this over SvelteKit?**
+- **Real-time Weather Data:** Live data visualization of temperature, wind speed, rain, and more.
+- **Dynamic Charting:** Interactive graphs generated with Chart.js.
+- **Responsive UI:** Tailored for multiple devices using Tailwind CSS.
+- **Type-safe Development:** Robust TypeScript implementation ensuring reliable data handling.
+- **Efficient Tooling:** Optimized development experience with Vite.
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+## Technologies Used
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+- [Svelte](https://svelte.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Chart.js](https://www.chartjs.org/)
+- [Prettier](https://prettier.io/)
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+## Prerequisites
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+Ensure you have the following installed:
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [pnpm](https://pnpm.io/) package manager
 
-**Why include `.vscode/extensions.json`?**
+## Installation
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+Clone the repository:
 
-**Why enable `allowJs` in the TS template?**
-
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from "svelte/store";
-export default writable(0);
+```bash
+git clone https://github.com/periko11/SelectionLabAssessment.git
+cd SelectionLabAssessment
 ```
+
+Install dependencies:
+
+```bash
+pnpm install
+```
+
+## Development
+
+Start the development server:
+
+```bash
+pnpm dev
+```
+
+The app runs at [http://localhost:5173](http://localhost:5173).
+
+## Production Build
+
+Create a production-ready build:
+
+```bash
+pnpm build
+```
+
+Preview the production build locally:
+
+```bash
+pnpm preview
+```
+
+## Formatting and Type-checking
+
+Format code with Prettier:
+
+```bash
+pnpm format
+```
+
+Perform type checks:
+
+```bash
+pnpm check
+```
+
+## VS Code Recommendations
+
+Recommended extension:
+
+- [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=1YiB.svelte-bundle)
+
+_(Note: I personally used [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode), [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss), and [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) extensions as well.)_
+
+## Known Issues
+
+- Regardless of the selected category, if you choose **180m height** and a forecast length **longer than 7 days**, the graph line will stop after 7 days. This is due to API limitations — values beyond this point will be filled with `null`.
+
+## API Reference
+
+- [Open-Meteo Weather API Documentation](https://open-meteo.com/en/docs)
+
+## Author
+
+- GitHub: [periko11](https://github.com/periko11)
+
+## License
+
+This project is licensed under the MIT License.
